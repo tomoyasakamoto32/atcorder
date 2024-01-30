@@ -1,0 +1,32 @@
+[package]
+name = "abc049"
+version = "0.1.0"
+edition = "2018"
+
+[package.metadata.cargo-compete.bin]
+abc049-a = { alias = "a", problem = "https://atcoder.jp/contests/abc049/tasks/abc049_a" }
+abc049-b = { alias = "b", problem = "https://atcoder.jp/contests/abc049/tasks/abc049_b" }
+abc049-c = { alias = "c", problem = "https://atcoder.jp/contests/abc049/tasks/arc065_a" }
+abc049-d = { alias = "d", problem = "https://atcoder.jp/contests/abc049/tasks/arc065_b" }
+
+[[bin]]
+name = "abc049-a"
+path = "src/bin/a.rs"
+
+[[bin]]
+name = "abc049-b"
+path = "src/bin/b.rs"
+
+[[bin]]
+name = "abc049-c"
+path = "src/bin/c.rs"
+
+[[bin]]
+name = "abc049-d"
+path = "src/bin/d.rs"
+
+[dependencies]
+proconio = "0.4.5"
+regex = "1.10.3"
+
+[dev-dependencies]
