@@ -26,5 +26,6 @@ name = "abc086-d"
 path = "src/bin/d.rs"
 
 [dependencies]
+proconio = "0.4.5"
 
 [dev-dependencies]

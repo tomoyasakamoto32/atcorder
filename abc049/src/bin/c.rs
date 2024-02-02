@@ -5,17 +5,27 @@ fn main() {
         mut s: String
     }
     let search_strings = [
-        "dreameraser",
-        "dreamerase",
+        "dreamereraser",
+        "dreamererase",
         "eraser",
         "erase",
         "dreamer",
         "dream",
     ];
-    for search_string in search_strings {
-        s = s.replace(search_string, "");
-    }
 
+    let mut flag = true;
+
+    while flag == true {
+        flag = false;
+        for search_string in search_strings {
+            let tmp = s.clone();
+            s = s.replace(search_string, "");
+            if tmp.len() != s.len() {
+                flag = true;
+                break;
+            }
+        }
+    }
     if s.len() > 0 {
         println!("NO");
     } else {
