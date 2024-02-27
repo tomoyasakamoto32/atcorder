@@ -1,35 +1,33 @@
-use std::io::{self, BufRead};
+use std::collections::HashMap;
+
+use proconio::input;
 
 fn main() {
-    // 標準入力からの値の読み込み
-    let stdin = io::stdin();
-    let mut lines = stdin.lock().lines();
-    
-    // nの読み込み
-    let _n: i32 = lines.next().unwrap().unwrap().trim().parse().unwrap();
-    
-    // pの読み込み
-    let mut p: String = lines.next().unwrap().unwrap().trim().to_string();
-    
-    // qの読み込み
-    let q: i32 = lines.next().unwrap().unwrap().trim().parse().unwrap();
-    
-    // queryの読み込み
-    let mut query = Vec::new();
-    for _ in 0..q {
-        let line = lines.next().unwrap().unwrap();
-        let parts: Vec<&str> = line.trim().split_whitespace().collect();
-        let s1 = parts[0].to_string();
-        let s2 = parts[1].to_string();
-        query.push((s1, s2));
+    input! {
+        _: i32,
+        string: String,
+        q: i32,
+        c: [(char, char); q],
     }
-
-    // クエリの実行
-    for (s1, s2) in query {
-        p = p.replace(&s1, &s2);
+    let mut map: HashMap<char, char> = HashMap::new();
+    for i in String::from_utf8((b'a'..b'z').collect()).unwrap().split("") {
+        if i != "" {
+            map.insert(i.chars().next().unwrap(), i.chars().next().unwrap());
+        }
     }
-
-    // 結果の表示
-    println!("{}", p);
+    for (c, d) in c {
+        for (k, v) in map.clone() {
+            if c == v {
+                map.insert(k, d);
+            }
+        }
+    }
+    let mut result: String = "".to_string();
+    for s in string.chars() {
+        let val = map.get(&s);
+        if let Some(v) = val {
+            result.push(v.clone());
+        }
+    }
+    println!("{}", result);
 }
-
