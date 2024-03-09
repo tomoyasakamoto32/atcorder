@@ -14,7 +14,7 @@ fn main() {
             if first != i {
                 println!("{}", index)
             };
-        };
+        }
     } else {
         println!("{}", 1);
     }
