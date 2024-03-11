@@ -1,6 +1,7 @@
 use proconio::input;
 use std::collections::HashSet;
 
+// TODO: a,b,cが0以上100以下のため全て回しても10**6程度、そのため全通りの値を格納するMapを用意してその中にxをまわした要素が含まれるかを検証する方針に修正したい
 fn main() {
     input! {
         an: i32,
