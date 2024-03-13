@@ -1,7 +1,7 @@
-use proconio::input;
 use std::collections::HashSet;
 
-// TODO: a,b,cが0以上100以下のため全て回しても10**6程度、そのため全通りの値を格納するMapを用意してその中にxをまわした要素が含まれるかを検証する方針に修正したい
+use proconio::input;
+
 fn main() {
     input! {
         an: i32,
@@ -14,27 +14,21 @@ fn main() {
         x: [i32; xn],
     }
 
-    let a_set: HashSet<_> = a.iter().cloned().collect();
-    let b_set: HashSet<_> = b.iter().cloned().collect();
-    let c_set: HashSet<_> = c.iter().cloned().collect();
-
-    for i in x {
-        let mut flag = false;
-        for aitem in a_set.iter() {
-            for bitem in b_set.iter() {
-                if c_set.contains(&(i - aitem - bitem)) {
-                    flag = true;
-                    break;
-                }
-            }
-            if flag {
-                break;
+    let mut add = vec![];
+    for a_item in a.iter() {
+        for b_item in b.iter() {
+            for c_item in c.iter() {
+                add.push(a_item + b_item + c_item)
             }
         }
-        if flag {
-            println!("Yes");
+    }
+    let set: HashSet<i32> = add.into_iter().collect();
+
+    for i in x {
+        if set.contains(&i) == true {
+            println!("Yes")
         } else {
-            println!("No");
+            println!("No")
         }
     }
 }
