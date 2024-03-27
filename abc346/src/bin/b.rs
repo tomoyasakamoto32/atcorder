@@ -15,8 +15,7 @@ fn main() {
 
         for j in 0..w + b {
             let index = (i + j) as usize;
-            let a = &t[index..index + 1];
-            if a == "w" {
+            if &t[index..index + 1] == "w" {
                 nw += 1
             } else {
                 nb += 1
