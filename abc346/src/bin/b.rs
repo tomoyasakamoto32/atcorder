@@ -14,8 +14,8 @@ fn main() {
         let mut nb = 0;
 
         for j in 0..w + b {
-            let index = i + j;
-            let a = &t[(index - 1) as usize..index as usize];
+            let index = (i + j) as usize;
+            let a = &t[index..index + 1];
             if a == "w" {
                 nw += 1
             } else {
