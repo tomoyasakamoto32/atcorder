@@ -8,15 +8,15 @@ fn main() {
         a: [u128; n]
     }
 
-    let a_set: HashSet<u128> = a.into_iter().collect();
+    let a_hash: HashSet<u128> = a.into_iter().collect();
 
-    let mut num = 0;
+    let mut ans = (k.clone() * (k.clone() + 1)) / 2;
 
-    for i in 1..k + 1 {
-        if a_set.contains(&i) == false {
-            num += i;
+    for a_item in a_hash {
+        if a_item <= k {
+            ans -= a_item;
         }
     }
 
-    println!("{}", num);
+    println!("{}", ans);
 }
