@@ -14,8 +14,7 @@ fn main() {
         }
         if let Some(x) = ind {
             let current = &s[x + 1..].to_string();
-            let b = current.to_string().clone();
-            s = b;
+            s = current.to_string().clone();
         } else {
             flag = false;
             break;
