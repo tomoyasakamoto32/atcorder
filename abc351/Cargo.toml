@@ -41,5 +41,6 @@ name = "abc351-g"
 path = "src/bin/g.rs"
 
 [dependencies]
+proconio = "0.4.5"
 
 [dev-dependencies]
